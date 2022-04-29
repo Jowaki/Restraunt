@@ -1,5 +1,7 @@
 <?php
 
+// testing commit -Andrew 
+
 $hostName = "mysql.eecs.ku.edu";
 $userName = "p695k530";
 $password = "eFeitu9e";
@@ -29,12 +31,12 @@ $columnName = implode(", ", $columns);
 $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY DishID ASC";
 $result = $db->query($query);
 
-if($result== true){ 
+if($result== true){
  if ($result->num_rows > 0) {
     $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
     $msg= $row;
  } else {
-    $msg= "No Data Found"; 
+    $msg= "No Data Found";
  }
 }else{
   $msg= mysqli_error($db);
@@ -64,7 +66,7 @@ return $msg;
 
   <br><br><br>
 
-  
+
 <div class="container">
  <div class="row">
    <div class="col-sm-8">
@@ -81,16 +83,16 @@ return $msg;
     </thead>
     <tbody>
   <?php
-      if(is_array($fetchData)){      
+      if(is_array($fetchData)){
       $sn=1;
       foreach($fetchData as $data){
     ?>
       <tr>
-      
+
       <td><?php echo $data['DishID']??''; ?></td>
       <td><?php echo $data['Name']??''; ?></td>
       <td><?php echo $data['Price']??''; ?></td>
-      <td><?php echo $data['Course']??''; ?></td>  
+      <td><?php echo $data['Course']??''; ?></td>
       <td><input type="number"</td>
      </tr>
      <?php
@@ -109,12 +111,10 @@ return $msg;
 </div>
 </div>
 <br><br><br>
-  
+
   <input type="submit">
 
-  
-  
+
+
 </body>
 </html>
-
-
