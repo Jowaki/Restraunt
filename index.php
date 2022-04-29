@@ -1,51 +1,69 @@
 <?php
 
-// testing commit -Andrew 
-
+// MySQL connection info
 $hostName = "mysql.eecs.ku.edu";
 $userName = "p695k530";
 $password = "eFeitu9e";
 $databaseName = "p695k530";
- $conn = new mysqli($hostName, $userName, $password, $databaseName);
+$conn = new mysqli($hostName, $userName, $password, $databaseName);
+
 // Check connection
-if ($conn->connect_error) {
+if ($conn->connect_error)
+{
   die("Connection failed: " . $conn->connect_error);
 }
 
-//retreving data
-$db= $conn;
-$tableName="DISH";
-$columns= ['DishID', 'Name','Price','Course'];
+// retreving data
+$db = $conn;
+$tableName = "DISH";
+$columns = ['DishID', 'Name','Price','Course'];
 $fetchData = fetch_data($db, $tableName, $columns);
 
-function fetch_data($db, $tableName, $columns){
- if(empty($db)){
-  $msg= "Database connection error";
- }elseif (empty($columns) || !is_array($columns)) {
-  $msg="columns Name must be defined in an indexed array";
- }elseif(empty($tableName)){
-   $msg= "Table Name is empty";
-}else{
+function fetch_data($db, $tableName, $columns)
+{
+  if(empty($db))
+  {
+    $msg= "Database connection error";
+  }
 
-$columnName = implode(", ", $columns);
-$query = "SELECT ".$columnName." FROM $tableName"." ORDER BY DishID ASC";
-$result = $db->query($query);
+  elseif (empty($columns) || !is_array($columns))
+  {
+    $msg="columns Name must be defined in an indexed array";
+  }
 
-if($result== true){
- if ($result->num_rows > 0) {
-    $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
-    $msg= $row;
- } else {
-    $msg= "No Data Found";
- }
-}else{
-  $msg= mysqli_error($db);
+  elseif(empty($tableName))
+  {
+    $msg= "Table Name is empty";
+  }
+
+  else
+  {
+    $columnName = implode(", ", $columns);
+    $query = "SELECT ".$columnName." FROM $tableName"." ORDER BY DishID ASC";
+    $result = $db->query($query);
+
+    if($result== true)
+    {
+      if ($result->num_rows > 0)
+      {
+        $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $msg= $row;
+      }
+      else
+      {
+        $msg= "No Data Found";
+      }
+    }
+
+    else
+    {
+      $msg= mysqli_error($db);
+    }
+  }
+  return $msg;
 }
-}
-return $msg;
-}
+
 ?>
-
 
 
 <!DOCTYPE html>
@@ -113,8 +131,6 @@ return $msg;
 <br><br><br>
 
   <input type="submit">
-
-
 
 </body>
 </html>
