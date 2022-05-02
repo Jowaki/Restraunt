@@ -10,6 +10,8 @@
       // include("menu.php");
     ?>
     <h1>Lettuce Eat!!</h1>
+    
+    <img src="Lettuce EAT.jpg" alt="Lettuce Eat Menu">
 
   </body>
 </html>
