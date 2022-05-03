@@ -32,10 +32,10 @@ $result = $conn->query($query);
     {
 ?>
       <tr>
-        <td><?php echo $data['DishID']; ?>  </td>
-        <td><?php echo $data['Name'];   ?>  </td>
-        <td><?php echo $data['Price'];  ?>  </td>
-        <td><?php echo $data['Course']; ?>  </td>
+        <td><?php  echo $data['DishID']; ?>  </td>
+        <td><?php  echo $data['Name'];   ?>  </td>
+        <td>$<?php echo $data['Price'];  ?>  </td>
+        <td><?php  echo $data['Course']; ?>  </td>
       <tr>
 <?php
     }
