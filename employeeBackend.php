@@ -14,12 +14,9 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     echo "<h1>Hello " .$row["Name"]. "\n</h1>";
   }
-} else {
-  echo "<h1>Not Authorised</h1>";
-}
 
-echo "<h2>Tables You Are Waiting: \n</h2>";
-$look = "SELECT TableID FROM WAITTABLE WHERE WaiterID='$user'";
+  echo "<h2>Tables You Are Waiting: \n</h2>";
+    $look = "SELECT TableID FROM WAITTABLE WHERE WaiterID='$user'";
     $result1 = $mysqli->query($look);
     if ($result1->num_rows > 0) {
         // output data of each row
@@ -29,11 +26,7 @@ $look = "SELECT TableID FROM WAITTABLE WHERE WaiterID='$user'";
 
         
 }
-
-
-$mysqli->close();
 ?>
-
 <html>
     <form action="Order.php" method="post">
     <body style="background-image: url('lettucepic.jpg');">
@@ -41,3 +34,16 @@ $mysqli->close();
     </form>
 </body>
 </html>
+
+
+<?php
+
+} else {
+  echo "<h1>Not Authorised</h1>";
+}
+$mysqli->close();
+?>
+<html>
+<body style="background-image: url('lettucepic.jpg');">
+</html>
+
