@@ -7,8 +7,8 @@ include("database.php");
 $waiter=$_POST["username"];
 
 
-$sql = "SELECT WaiterID, Name FROM WAITER WHERE WaiterID='$waiter' AND Working='1'";
-$result = $conn->query($sql);
+$query = "SELECT WaiterID, Name FROM WAITER WHERE WaiterID='$waiter' AND Working='1'";
+$result = $conn->query($query);
 
 if ($result->num_rows > 0) {
   // output data of each row
@@ -29,7 +29,7 @@ if ($result->num_rows > 0) {
 }
 ?>
 <html>
-    <form action="Order.php" method="post">
+    <form action="order.php" method="post">
     <body style="background-image: url('lettucepic.jpg');">
     <button style="height:35px" type="submit" value="Submit ">Order</button>
     </form>
