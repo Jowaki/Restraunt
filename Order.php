@@ -1,3 +1,4 @@
+
 <?php
 // load menu
 
@@ -7,7 +8,6 @@
 // get database connection
 include("database.php");
 
-// query table
 $query = "SELECT DishID, Name, Price, Course FROM DISH";
 
 // execute query
@@ -23,6 +23,8 @@ $result = $conn->query($query);
     <th>Name</th>
     <th>Price</th>
     <th>Course No</th>
+    <th>Quantity</th>
+    
   </tr>
 
 <?php
@@ -32,10 +34,11 @@ $result = $conn->query($query);
     {
 ?>
       <tr>
-        <td><?php  echo $data['DishID']; ?>  </td>
-        <td><?php  echo $data['Name'];   ?>  </td>
-        <td>$<?php echo $data['Price'];  ?>  </td>
-        <td><?php  echo $data['Course']; ?>  </td>
+        <td><?php echo $data['DishID']; ?>  </td>
+        <td><?php echo $data['Name'];   ?>  </td>
+        <td><?php echo $data['Price'];  ?>  </td>
+        <td><?php echo $data['Course']; ?>  </td>
+        <td><input type="number"</td>
       <tr>
 <?php
     }
@@ -51,3 +54,13 @@ $result = $conn->query($query);
   }
 ?>
 </table>
+
+
+<html>
+    <form action="Order.php" method="post">
+    <body style="background-image: url('lettucepic.jpg');">
+
+
+    </form>
+</body>
+</html>
