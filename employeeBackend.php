@@ -25,6 +25,7 @@ if ($result->num_rows > 0) {
             echo "<h3> * " .$row1["TableID"]. "\n</h3>";
         }
 
+        // add order.php contents in here, make tables radio button
 
 }
 ?>

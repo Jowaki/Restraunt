@@ -1,5 +1,11 @@
 
 <?php
+
+// merge this with employeeBackend.php, no need to load tables twice 
+
+
+
+
 // load menu
 
 // Note: this query is for testing purposes, won't call this query since we
@@ -45,7 +51,15 @@ $result = $conn->query($query);
   <?php
       }
 
-       
+
+       // $test = $_POST[];
+       ?>
+
+       <!-- <select name="table">
+         <option value=""></option>
+       </select> -->
+
+       <?php
 
     }
 
