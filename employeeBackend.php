@@ -1,13 +1,14 @@
 <?php
-$mysqli =new mysqli("mysql.eecs.ku.edu", "p695k530", "eFeitu9e", "p695k530");
-if ($mysqli->connect_errno)
-{
-    printf("Connect failed: %s\n", $mysqli->connect_error);exit();
-}
-$user=$_POST["username"];
 
-$sql = "SELECT WaiterID, Name FROM WAITER WHERE WaiterID='$user' AND Working='1'";
-$result = $mysqli->query($sql);
+// get database connection
+include("database.php");
+
+// get waiterID (from login.html)
+$waiter=$_POST["username"];
+
+
+$sql = "SELECT WaiterID, Name FROM WAITER WHERE WaiterID='$waiter' AND Working='1'";
+$result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
@@ -16,15 +17,15 @@ if ($result->num_rows > 0) {
   }
 
   echo "<h2>Tables You Are Waiting: \n</h2>";
-    $look = "SELECT TableID FROM WAITTABLE WHERE WaiterID='$user'";
-    $result1 = $mysqli->query($look);
+    $look = "SELECT TableID FROM WAITTABLE WHERE WaiterID='$waiter'";
+    $result1 = $conn->query($look);
     if ($result1->num_rows > 0) {
         // output data of each row
         while($row1 = $result1->fetch_assoc()) {
             echo "<h3> * " .$row1["TableID"]. "\n</h3>";
         }
 
-        
+
 }
 ?>
 <html>
@@ -41,9 +42,8 @@ if ($result->num_rows > 0) {
 } else {
   echo "<h1>Not Authorised</h1>";
 }
-$mysqli->close();
+$conn->close();
 ?>
 <html>
 <body style="background-image: url('lettucepic.jpg');">
 </html>
-
