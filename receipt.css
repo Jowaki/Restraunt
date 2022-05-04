@@ -1,9 +1,3 @@
-.body
-{
-  font-size: 12pt;
-  margin: 0 20px;
-}
-
 header
 {
   /* position: relative; */
@@ -24,4 +18,38 @@ header
   position: absolute;
   right: 20px;
   text-transform: uppercase;
+}
+
+.body
+{
+  font-size: 12pt;
+  margin: 0 20px;
+}
+
+.address
+{
+  margin-bottom: 40px;
+}
+
+.receiptTable
+{
+  border: 1px solid;
+  margin-top: 50px;
+  width: 100%;
+  empty-cells: hide;
+  line-height: 20px;
+}
+
+.receiptTable th
+{
+  border: 1px solid;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #E7E7E7;
+}
+
+.receiptTable td
+{
+  border: 1px solid;
+  text-align: center;
 }
