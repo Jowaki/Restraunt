@@ -19,7 +19,7 @@ echo "<title>Receipt</title>
       </header>
 
       <div class='body'>
-        <p class='address'> 1603 W 15th <br> Jayhawk Tower-A Apt. 603 <br> Lawrence, KS 66044 </p>
+        <p class='address'>  122231 W 15th <br> Eaton Allot-A Apt. 603 <br> Lawrence, KS 66044 </p>
 
         <p>
         Date: " . date('m/d/Y') . "<br>

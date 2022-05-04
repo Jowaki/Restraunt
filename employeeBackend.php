@@ -7,7 +7,7 @@ include("database.php");
 $waiter=$_POST["username"];
 
 
-$query = "SELECT WaiterID, Name FROM WAITER WHERE WaiterID='$waiter' AND Working='1'";
+$query = "SELECT WaiterID, Name FROM WAITER WHERE WaiterID='$waiter' AND Working='1' AND WaiterID <> '000'";
 $result = $conn->query($query);
 
 if ($result->num_rows > 0) {
@@ -77,7 +77,13 @@ if ($result->num_rows > 0) {
           <td> <?php echo $data['Course']; ?>  </td>
           <td><input type="number" value=0 name=" <?php echo $data['DishID']; ?>"></td>
         <tr>
-
+<style>
+  td, th{
+    background-color: rgba(255, 255,255,0.75);
+    font-weight: bold;
+    /* color: white; */
+  }
+</style>
   <?php
       }
 

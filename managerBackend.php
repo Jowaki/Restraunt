@@ -15,19 +15,27 @@ if ($waiter == 000)
     // output data of each row
     while($row = $result->fetch_assoc()) {
       echo "<h3>" .$row["Name"]. "\n</h3>";
-      echo "<b>Tables:</b>";
       $current = $row["WaiterID"];
+
+      if($current == "000")
+      {
+        echo "Manager";
+        continue;
+      }
+      echo "<b>Tables: </b> ";
+
       $look = "SELECT * FROM WAITTABLE WHERE WaiterID = $current ";
       $result1 = $conn->query($look);
 
       if ($result1->num_rows > 0) {
           // output data of each row
           while($row1 = $result1->fetch_assoc()) {
-              echo $row1["TableID"];
+              echo $row1["TableID"] ." ";
+              
           }
         }
-
       }
+
     }
   }
   else 
