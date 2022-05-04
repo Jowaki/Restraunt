@@ -99,8 +99,12 @@ if ($result->num_rows > 0) {
 
   <br>
   <br>
-  <input type="submit" value="Generate Bill">
-
+  <h2>Payment Method</h2>
+    <input type="radio" id="cash" name="payment" value="Cash" checked>Cash
+    <input type="radio" id="card" name="payment" value="Card">Card
+    </br>
+    <br>
+    <input type="submit" value="Generate Bill">
 
 
   </form>
