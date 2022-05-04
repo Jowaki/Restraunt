@@ -1,0 +1,27 @@
+.body
+{
+  font-size: 12pt;
+  margin: 0 20px;
+}
+
+header
+{
+  /* position: relative; */
+  display: inline-block;
+  font-weight: bold;
+  font-size: 20pt;
+  margin: 20px 0 50px 0;
+}
+
+.company-name
+{
+  position: absolute;
+  left: 20px;
+}
+
+.receipt
+{
+  position: absolute;
+  right: 20px;
+  text-transform: uppercase;
+}

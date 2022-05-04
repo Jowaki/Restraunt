@@ -15,25 +15,33 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     echo "<h1>Hello " .$row["Name"]. "\n</h1>";
   }
-  
+
 
   echo "<h2>Tables You Are Waiting: \n</h2>";
     $look = "SELECT TableID FROM WAITTABLE WHERE WaiterID='$waiter'";
     $result1 = $conn->query($look);
     ?>
-    <form action="submitOrder.php" method="post"><?php
+    <form action="submitOrder.php" method="post">
+
+    <?php
     if ($result1->num_rows > 0) {
+      ?>
+      <div class="choices">
+      <?php
+
         // output data of each row
-        while($row1 = $result1->fetch_assoc()) {?>
-            <?php echo $row1["TableID"]?> 
-            <?php
+        while($data = $result1->fetch_assoc()) {
+          ?>
+          <input type="radio" id="<?php echo $data['TableID']; ?>" name="table" value="<?php echo $data['TableID']; ?>" checked>
+          <?php echo $data['TableID']; ?>
+          <?php
         }
         ?>
-        <input type="text" id="tID" name="tID">
+      </div>
+
         <?php
 
         // add order.php contents in here, make tables radio button
-
         $query = "SELECT DishID, Name, Price, Course FROM DISH";
 
         // execute query
@@ -69,7 +77,7 @@ if ($result->num_rows > 0) {
           <td> <?php echo $data['Course']; ?>  </td>
           <td><input type="number" value=0 name=" <?php echo $data['DishID']; ?>"></td>
         <tr>
-       
+
   <?php
       }
 
@@ -98,7 +106,7 @@ if ($result->num_rows > 0) {
   </form>
     <!-- <form action="Order.php" method="post"> -->
     <body style="background-image: url('lettucepic.jpg');">
-    
+
 </body>
 </html>
 
